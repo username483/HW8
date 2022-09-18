@@ -15,9 +15,9 @@ int c = WriteNumber("Введите c: ");
 
 int WriteNumber(string number)
 {
-  Console.Write(number);
-  int outnumber = int.Parse(Console.ReadLine());
-  return outnumber;
+    Console.Write(number);
+    int outnumber = int.Parse(Console.ReadLine());
+    return outnumber;
 }
 
 int[,,] array = new int[a, b, c];
@@ -29,54 +29,54 @@ PrintArray(array);
 
 void FillArray(int[,,] array)
 {
-  int[] outputArray = new int[array.GetLength(0) * array.GetLength(1) * array.GetLength(2)];
-  int  temp;
-  for (int i = 0; i < outputArray.GetLength(0); i++)
-  {
-    outputArray[i] = new Random().Next(10, 100);
-    temp = outputArray[i];
-    if (i >= 1)
+    int[] outputArray = new int[array.GetLength(0) * array.GetLength(1) * array.GetLength(2)];
+    int temp;
+    for (int i = 0; i < outputArray.GetLength(0); i++)
     {
-      for (int j = 0; j < i; j++)
-      {
-        while (outputArray[i] == outputArray[j])
+        outputArray[i] = new Random().Next(10, 100);
+        temp = outputArray[i];
+        if (i >= 1)
         {
-          outputArray[i] = new Random().Next(10, 100);
-          j = 0;
-          temp = outputArray[i];
+            for (int j = 0; j < i; j++)
+            {
+                while (outputArray[i] == outputArray[j])
+                {
+                    outputArray[i] = new Random().Next(10, 100);
+                    j = 0;
+                    temp = outputArray[i];
+                }
+                temp = outputArray[i];
+            }
         }
-          temp = outputArray[i];
-      }
     }
-  }
 
-  int count = 0; 
-  for (int a = 0; a < array.GetLength(0); a++)
-  {
-    for (int b = 0; b < array.GetLength(1); b++)
+    int count = 0;
+    for (int a = 0; a < array.GetLength(0); a++)
     {
-      for (int c = 0; c < array.GetLength(2); c++)
-      {
-        array[a, b, c] = outputArray[count];
-        count++;
-      }
+        for (int b = 0; b < array.GetLength(1); b++)
+        {
+            for (int c = 0; c < array.GetLength(2); c++)
+            {
+                array[a, b, c] = outputArray[count];
+                count++;
+            }
+        }
     }
-  }
 }
 
-void PrintArray (int[,,] array)
+void PrintArray(int[,,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      Console.Write($"a({i}) b({j}) ");
-      for (int f = 0; f < array.GetLength(2); f++)
-      {
-        Console.Write( $"c({f})={array[i,j,f]}; ");
-      }
-      Console.WriteLine();
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"a({i}) b({j}) ");
+            for (int f = 0; f < array.GetLength(2); f++)
+            {
+                Console.Write($"c({f})={array[i, j, f]}; ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
     }
-    Console.WriteLine();
-  }
 }
