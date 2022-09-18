@@ -15,9 +15,9 @@ int c = WriteNumber("Введите число столбцов второй м�
 
 int WriteNumber(string number)
 {
-  Console.Write(number);
-  int outnumber = int.Parse(Console.ReadLine());
-  return outnumber;
+    Console.Write(number);
+    int outnumber = int.Parse(Console.ReadLine());
+    return outnumber;
 }
 
 int[,] matrix1 = new int[a, b];
@@ -30,7 +30,7 @@ CreateArray(mattrix2);
 Console.WriteLine("Вторая матрица:");
 WriteArray(mattrix2);
 
-int[,] matrix3 = new int[a,c];
+int[,] matrix3 = new int[a, c];
 
 ResultMatrix(matrix1, mattrix2, matrix3);
 Console.WriteLine("Произведение матриц:");
@@ -38,41 +38,41 @@ WriteArray(matrix3);
 
 void ResultMatrix(int[,] matrix1, int[,] matrix2, int[,] matrix3)
 {
-  for (int i = 0; i < matrix3.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix3.GetLength(1); j++)
+    for (int i = 0; i < matrix3.GetLength(0); i++)
     {
-      int sum = 0;
-      for (int f = 0; f < matrix1.GetLength(1); f++)
-      {
-        sum += matrix1[i,f] * matrix2[f,j];
-      }
-      matrix3[i,j] = sum;
+        for (int j = 0; j < matrix3.GetLength(1); j++)
+        {
+            int sum = 0;
+            for (int f = 0; f < matrix1.GetLength(1); f++)
+            {
+                sum += matrix1[i, f] * matrix2[f, j];
+            }
+            matrix3[i, j] = sum;
+        }
     }
-  }
 }
 
 
 
 void CreateArray(int[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      array[i, j] = new Random().Next(n);
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(n);
+        }
     }
-  }
 }
 
-void WriteArray (int[,] array)
+void WriteArray(int[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      Console.Write(array[i,j] + " ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
     }
-    Console.WriteLine();
-  }
 }
