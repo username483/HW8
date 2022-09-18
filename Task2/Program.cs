@@ -22,25 +22,25 @@ int RowSum = CountSumRow(matrix, 0);
 
 for (int i = 1; i < matrix.GetLength(0); i++)
 {
-  int temp = CountSumRow(matrix, i);
-  if (RowSum > temp)
-  {
-    RowSum = temp;
-    minSumRow = i;
-  }
+    int temp = CountSumRow(matrix, i);
+    if (RowSum > temp)
+    {
+        RowSum = temp;
+        minSumRow = i;
+    }
 }
 
-Console.WriteLine($"\n{minSumRow+1} - строкa с наименьшей суммой элементов, Сумма = {RowSum}");
+Console.WriteLine($"\n{minSumRow + 1} - строкa с наименьшей суммой элементов, Сумма = {RowSum}");
 
 
 int CountSumRow(int[,] array, int i)
 {
-  int RowSumElements = array[i,0];
-  for (int j = 1; j < array.GetLength(1); j++)
-  {
-    RowSumElements += array[i,j];
-  }
-  return RowSumElements;
+    int RowSumElements = array[i, 0];
+    for (int j = 1; j < array.GetLength(1); j++)
+    {
+        RowSumElements += array[i, j];
+    }
+    return RowSumElements;
 }
 
 
