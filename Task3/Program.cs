@@ -8,11 +8,17 @@
 
 Console.Clear();
 Console.WriteLine("Введите параметры задачи:");
-int n = InputNumbers("Введите диапазон значений матриц: от 1 до n ");
-int a = InputNumbers("Введите число a строк первой матрицы: ");
-int b = InputNumbers("Введите число b столбцов первой матрицы, равное количеству строк второй матрицы: ");
-int c = InputNumbers("Введите число c столбцов второй матрицы: ");
+int n = WriteNumber("Введите диапазон значений матриц: от 1 до n = ");
+int a = WriteNumber("Введите число строк первой матрицы a = ");
+int b = WriteNumber("Введите число столбцов первой матрицы, равное количеству строк второй матрицы b = ");
+int c = WriteNumber("Введите число столбцов второй матрицы с = ");
 
+int WriteNumber(string number)
+{
+  Console.Write(number);
+  int outnumber = int.Parse(Console.ReadLine());
+  return outnumber;
+}
 
 int[,] matrix1 = new int[a, b];
 CreateArray(matrix1);
@@ -46,12 +52,7 @@ void ResultMatrix(int[,] matrix1, int[,] matrix2, int[,] matrix3)
   }
 }
 
-int InputNumbers(string input)
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
+
 
 void CreateArray(int[,] array)
 {
