@@ -32,7 +32,7 @@ void FindNewArray(int[,] matrix)
         {
             for (int f = 0; f < matrix.GetLength(1) - 1; f++)
             {
-                
+
                 if (matrix[i, f + 1] > matrix[i, f])
                 {
                     int number = matrix[i, f + 1];
